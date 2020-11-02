@@ -16,11 +16,22 @@
 //= require semantic-ui
 //= require_tree .
 
+scroll_bottom = function() {
+    // What this does: if the length of your messages container if not blank scroll to the top of the 0 element's height
+    // So basically scroll to the last message in the chatbox
+    if ($('#messages').length > 0) {
+        $('#messages').scrollTop($('#messages')[0].scrollHeight);
+    }
+}
+
+
+
 $(document).on('turbolinks:load', function () {
     $('.ui.dropdown').dropdown();
     $('.message .close').on('click', function() {
         $(this).closest('.message').transition('fade');
     });
+    scroll_bottom();
 })
 
 

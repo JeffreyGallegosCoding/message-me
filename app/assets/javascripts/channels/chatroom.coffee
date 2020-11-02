@@ -10,3 +10,4 @@ App.chatroom = App.cable.subscriptions.create "ChatroomChannel",
     # This is how you can append the message that a user just posted to the chat
     # In coffee script you dont need paranthesis. Reg js would be: $('#message-container').append( data.foo)
     $('#message-container').append data.mod_message
+    scroll_bottom()

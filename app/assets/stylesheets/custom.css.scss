@@ -5,3 +5,8 @@
   height: 450px;
 }
 
+//Will add scrolling to chatbox
+#messages {
+  height: 15em;
+  overflow: auto;
+}
