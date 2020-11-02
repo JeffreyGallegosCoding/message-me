@@ -24,13 +24,28 @@ scroll_bottom = function() {
     }
 }
 
+submit_message = function() {
+    // On the keydown event (e) is the enter keycode (13) then treat it like clicking the enter button
+    $('#message_body').on('keydown', function(e) {
+        if (e.keycode == 13) {
+            $('button').click();
+        }
+    })
+}
+
+// Clears the text field after submitting a new message
+$(document).bind("ajax:beforeSend", function(){
+    $('#message_body').val('');
+});
 
 
+// What you want on page load
 $(document).on('turbolinks:load', function () {
     $('.ui.dropdown').dropdown();
     $('.message .close').on('click', function() {
         $(this).closest('.message').transition('fade');
     });
+    submit_message();
     scroll_bottom();
 })
 

@@ -4,8 +4,9 @@ class ChatroomController < ApplicationController
   def index
     # New message instance variable
     @message = Message.new
-    # Grabs all messages and puts their info on index chatroom page
-    @messages = Message.all
+    # Displays messages dependent on the custom_display that is defined in the scope
+    # on your message model
+    @messages = Message.custom_display
   end
 
 end
